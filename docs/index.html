@@ -10,115 +10,105 @@
 
 <!-- CSS -->
 <style>
-body {
-    margin:0;
-    font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(to bottom, #fefcf5, #fdf8f0);
-    color: #333;
-    overflow-x: hidden;
-}
-header {
-    text-align: center;
-    padding: 50px 20px;
-    background: url('photo1.jpeg') center/cover no-repeat;
-    color: white;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-    position: relative;
-}
-header h1 { font-family: 'Playfair Display', serif; font-size: 3em; margin:0; }
-header p { font-size: 1.2em; }
+    body {
+        margin:0;
+        font-family: 'Montserrat', sans-serif;
+        background: linear-gradient(to bottom, #fefcf5, #fdf8f0);
+        color: #333;
+        overflow-x: hidden;
+    }
+    header {
+        text-align: center;
+        padding: 50px 20px;
+        background: url('photo1.jpeg') center/cover no-repeat;
+        color: white;
+        text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+    }
+    header h1 { font-family: 'Playfair Display', serif; font-size: 3em; margin:0; }
+    header p { font-size: 1.2em; }
 
-.heart-logo {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-}
-.heart1 { top:20px; left:20px; }
-.heart2 { top:20px; right:20px; }
+    .poem {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        background: rgba(255,255,255,0.8);
+        border-radius: 15px;
+        text-align: center;
+        font-size: 1.3em;
+        font-style: italic;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
 
-.poem {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    background: rgba(255,255,255,0.8);
-    border-radius: 15px;
-    text-align: center;
-    font-size: 1.3em;
-    font-style: italic;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
+    .section {
+        max-width: 900px;
+        margin: 50px auto;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+        position: relative;
+    }
 
-.section {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.05);
-    position: relative;
-}
+    .wedding { background: linear-gradient(120deg, #e0f0d9, #ffffff); }
+    .reception { background: linear-gradient(120deg, #fff5e6, #fff9f3); }
 
-.wedding { background: linear-gradient(120deg, #e0f0d9, #ffffff); }
-.reception { background: linear-gradient(120deg, #fff5e6, #fff9f3); }
+    h2 {
+        font-family: 'Playfair Display', serif;
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
-h2 {
-    font-family: 'Playfair Display', serif;
-    text-align: center;
-    margin-bottom: 20px;
-}
+    .text-content { text-align: center; font-size: 1.1em; margin-bottom: 20px; }
 
-.text-content { text-align: center; font-size: 1.1em; margin-bottom: 20px; }
+    .photo-corner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
 
-.photo-corner {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-}
+    .photo-corner img {
+        width: 200px;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+        transform: rotate(calc(-5deg + 10deg*var(--i)));
+        transition: transform 0.3s;
+    }
 
-.photo-corner img {
-    width: 200px;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 5px 12px rgba(0,0,0,0.2);
-    transform: rotate(calc(-5deg + 10deg*var(--i)));
-    transition: transform 0.3s;
-}
+    .photo-corner img:hover {
+        transform: scale(1.05) rotate(0deg);
+    }
 
-.photo-corner img:hover {
-    transform: scale(1.05) rotate(0deg);
-}
+    footer {
+        text-align: center;
+        padding: 30px;
+        background: #222;
+        color: #fff;
+        font-size: 1em;
+    }
 
-iframe { border:0; border-radius:15px; margin-top:20px; }
+    footer p { margin: 5px; }
 
-footer {
-    text-align: center;
-    padding: 30px;
-    background: #222;
-    color: #fff;
-    font-size: 1em;
-}
+    #playBtn {
+        display:block;
+        margin: 20px auto;
+        padding: 10px 25px;
+        font-size: 1.1em;
+        border: none;
+        border-radius: 25px;
+        background: #cfa14b;
+        color: #fff;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transition: background 0.3s;
+    }
 
-footer p { margin: 5px; }
+    #playBtn:hover { background: #e6be6f; }
 
-#playBtn {
-    display:block;
-    margin: 20px auto;
-    padding: 10px 25px;
-    font-size: 1.1em;
-    border: none;
-    border-radius: 25px;
-    background: #cfa14b;
-    color: #fff;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: background 0.3s;
-}
+    a { color: #cfa14b; text-decoration:none; }
+    a:hover { text-decoration: underline; }
 
-#playBtn:hover { background: #e6be6f; }
-
-a { color: #cfa14b; text-decoration:none; }
-a:hover { text-decoration: underline; }
-
+    .venue-link { font-weight:bold; }
 </style>
 </head>
 
@@ -127,10 +117,6 @@ a:hover { text-decoration: underline; }
 <header>
     <h1>Nitin Satish & Sreelakshmi Suresh</h1>
     <p>April 29, 2026 | Reception Party: May 1, 2026</p>
-    <p>Wedding: Celebrations Auditorium, Anthikad, Thrissur | Reception: United Convention Centre, Lakkidi, Ottapalam</p>
-    <!-- Heart logos -->
-    <img src="heart1.png" class="heart-logo heart1">
-    <img src="heart2.png" class="heart-logo heart2">
 </header>
 
 <div class="poem">
@@ -142,35 +128,34 @@ a:hover { text-decoration: underline; }
 <div class="section wedding">
     <h2>Wedding Ceremony</h2>
     <div class="text-content">Green & White Theme</div>
+    <p class="text-content">
+        Venue: <a href="https://www.google.com/maps/place/Celebrations+Auditorium,+Anthikad,+Thrissur" target="_blank" class="venue-link">Celebrations Auditorium, Anthikad, Thrissur</a>
+    </p>
     <div class="photo-corner">
         <img src="photo2.jpeg" style="--i:0">
         <img src="photo3.jpeg" style="--i:1">
         <img src="photo4.jpeg" style="--i:2">
     </div>
-    <!-- Wedding Venue Map -->
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.123456!2d76.218765!3d10.593456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7bf0c!2sCelebrations%20Auditorium!5e0!3m2!1sen!2sin!4v1234567890" 
-      width="100%" height="300" allowfullscreen="" loading="lazy"></iframe>
 </div>
 
 <div class="section reception">
     <h2>Reception Party</h2>
     <div class="text-content">Gold Theme</div>
+    <p class="text-content">
+        Venue: <a href="https://www.google.com/maps/place/United+Convention+Centre,+Lakkidi,+Ottapalam" target="_blank" class="venue-link">United Convention Centre, Lakkidi, Ottapalam</a>
+    </p>
     <div class="photo-corner">
         <img src="photo5.jpeg" style="--i:0">
         <img src="photo6.jpeg" style="--i:1">
         <img src="photo7.jpeg" style="--i:2">
         <img src="photo8.jpeg" style="--i:3">
     </div>
-    <!-- Reception Venue Map -->
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.654321!2d76.234567!3d10.567890!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7cdef!2sUnited%20Convention%20Centre!5e0!3m2!1sen!2sin!4v0987654321" 
-      width="100%" height="300" allowfullscreen="" loading="lazy"></iframe>
 </div>
 
 <!-- Music -->
 <audio id="bgMusic" loop preload="none">
     <source src="ordinary.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
 </audio>
 <button id="playBtn">Play Music</button>
 
