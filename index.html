@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Celebration</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      background-color: #fff;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      position: relative;
+      height: 60vh;
+      background: url('photo1.jpeg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35); /* dark overlay for readability */
+    }
+
+    header h1, header p {
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    }
+
+    nav {
+      position: relative;
+      z-index: 1;
+      margin-top: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700; /* subtle gold hover */
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    /* Wedding Section */
+    #wedding {
+      background-color: #eaf6ea; /* light green */
+      color: #1a3d1a;
+      position: relative;
+    }
+
+    #wedding h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    #wedding p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    /* Reception Section */
+    #reception {
+      background-color: #fff8f0;
+      color: #5a2a0c;
+      position: relative;
+    }
+
+    #reception h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #b6862d; /* gold accent */
+    }
+
+    #reception p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    /* Integrated Photos */
+    .section-photo {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      margin: 20px auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: block;
+    }
+
+    .float-left {
+      float: left;
+      margin: 0 20px 20px 0;
+      width: 45%;
+    }
+
+    .float-right {
+      float: right;
+      margin: 0 0 20px 20px;
+      width: 45%;
+    }
+
+    /* Collage Section */
+    #collage {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    #collage img {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transform: rotate(-1deg);
+      transition: transform 0.3s;
+    }
+
+    #collage img:hover {
+      transform: scale(1.05) rotate(0deg);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #007B33;
+      color: #fff;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #005c24;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #f8f8f8;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    footer p {
+      font-size: 0.95rem;
+      color: #777;
+    }
+
+    /* Music Player */
+    #music-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 10px;
+      padding: 10px 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    #music-container audio {
+      display: none;
+    }
+
+    #music-btn {
+      padding: 8px 15px;
+      background-color: #007B33;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+    #music-btn:hover {
+      background-color: #005c24;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2rem; }
+      header p { font-size: 1rem; }
+      .float-left, .float-right { float: none; width: 100%; margin: 20px auto; }
+      #collage img { width: 45%; height: auto; }
+      .btn { padding: 10px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Nitin & Sreelakshmi</h1>
+    <p>Our Wedding Celebration</p>
+    <nav>
+      <a href="#wedding">Wedding</a>
+      <a href="#reception">Reception</a>
+      <a href="#collage">Photos</a>
+    </nav>
+  </header>
+
+  <!-- Wedding Section -->
+  <section id="wedding">
+    <h2>The Wedding</h2>
+    <img src="photo2.jpeg" alt="Wedding Photo" class="section-photo float-left">
+    <p>Join us in celebrating our traditional wedding ceremony, filled with love, laughter, and blessings. Experience the elegance of our special day with a green and white theme.</p>
+    <img src="photo3.jpeg" alt="Wedding Ceremony" class="section-photo float-right">
+    <p>We can’t wait to see all our friends and family coming together for this unforgettable celebration!</p>
+    <a class="btn" href="https://goo.gl/maps/YOUR_WEDDING_LOCATION" target="_blank">View in Google Maps</a>
+    <div style="clear: both;"></div>
+  </section>
+
+  <!-- Reception Section -->
+  <section id="reception">
+    <h2>The Reception</h2>
+    <img src="photo4.jpeg" alt="Reception Photo" class="section-photo float-right">
+    <p>Celebrate with us at our vibrant reception! Enjoy an evening full of music, dance, and joy in a lively gold, red, and white party vibe.</p>
+    <img src="photo5.jpeg" alt="Reception Party" class="section-photo float-left">
+    <p>Get ready for an evening that’s full of fun, laughter, and memories to cherish forever.</p>
+    <a class="btn" href="https://goo.gl/maps/YOUR_RECEPTION_LOCATION" target="_blank">View in Google Maps</a>
+    <div style="clear: both;"></div>
+  </section>
+
+  <!-- Collage Section for remaining photos -->
+  <section id="collage">
+    <h2>More Memories</h2>
+    <div id="collage">
+      <img src="photo6.jpeg" alt="Photo 6">
+      <img src="photo7.jpeg" alt="Photo 7">
+      <img src="photo8.jpeg" alt="Photo 8">
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Nitin & Sreelakshmi | All Rights Reserved</p>
+  </footer>
+
+  <!-- Music Player -->
+  <div id="music-container">
+    <audio id="music" autoplay loop>
+      <source src="ordinary.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <button id="music-btn">Pause Music</button>
+  </div>
+
+  <!-- JS -->
+  <script>
+    const music = document.getElementById('music');
+    const btn = document.getElementById('music-btn');
+
+    btn.addEventListener('click', () => {
+      if(music.paused){
+        music.play();
+        btn.textContent = "Pause Music";
+      } else {
+        music.pause();
+        btn.textContent = "Play Music";
+      }
+    });
+  </script>
+
+</body>
+</html>
